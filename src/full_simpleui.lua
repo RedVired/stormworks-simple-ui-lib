@@ -8,7 +8,7 @@ sui = { -- simple ui extension
         )
     end,
 
-    create = function(type, x, y, w, h, func, text)
+    create = function(type, x, y, w, h, func, text, oindex)
         table.insert(sui.el, {
             type = type,
             text = text,
@@ -18,28 +18,29 @@ sui = { -- simple ui extension
             h = h,
             act = false,       -- is active
             pretouch = false, -- previous touch state
-            func = func        -- is functional
+            func = func, -- is functional
+            oindex = oindex -- output index
         })
     end,
 
-    tglbutton = function(x, y, w, h)
-        sui.create("tglbtt", x, y, w, h, true)
+    tglbutton = function(x, y, w, h, oindex)
+        sui.create("tglbtt", x, y, w, h, true, oindex)
     end,
     
-    pshbutton = function(x, y, w, h)
-        sui.create("pshbtt", x, y, w, h, true)
+    pshbutton = function(x, y, w, h, oindex)
+        sui.create("pshbtt", x, y, w, h, true, oindex)
     end,
     
-    txttglbutton = function(x, y, w, h, text)
-        sui.create("tglbtt", x, y, w, h, true, text)
+    txttglbutton = function(x, y, w, h, text, oindex)
+        sui.create("tglbtt", x, y, w, h, true, text, oindex)
     end,
     
-    txtpshbutton = function(x, y, w, h, text)
-        sui.create("pshbtt", x, y, w, h, true, text)
+    txtpshbutton = function(x, y, w, h, text, oindex)
+        sui.create("pshbtt", x, y, w, h, true, text, oindex)
     end,
     
-    label = function(x, y, w, h, text)
-    	sui.create("lbl", x, y, w, h, false, text)
+    label = function(x, y, w, h, text, oindex)
+    	sui.create("lbl", x, y, w, h, false, text, oindex)
     end
 }
 
@@ -64,6 +65,9 @@ function onTick()
                 elseif e.type == "pshbtt" then
                     e.act = false
                 end
+            end
+            if e.oindex then
+            	output.setBool(e.oindex, e.act)	
             end
         end
         e.pretouch = touch
