@@ -1,3 +1,4 @@
+--lib
 sui = { -- simple ui extension
 	el = {},
 	
@@ -39,13 +40,14 @@ sui = { -- simple ui extension
         sui.create("pshbtt", x, y, w, h, true, text, oindex)
     end,
     
-    label = function(x, y, w, h, text, oindex)
-    	sui.create("lbl", x, y, w, h, false, text, oindex)
+    label = function(x, y, w, h, text)
+    	sui.create("lbl", x, y, w, h, false, text)
     end
 }
-
+--
 
 function onTick()
+--ontick
     local touch = input.getBool(1)
     
     local touchx = input.getNumber(3)
@@ -72,9 +74,11 @@ function onTick()
         end
         e.pretouch = touch
     end
+--
 end
 
 function onDraw()
+--ondraw
     for i = 1, #sui.el do
         local e = sui.el[i]
 		
@@ -88,4 +92,5 @@ function onDraw()
             screen.drawRect(e.x, e.y, e.w, e.h)
         end
     end
+--
 end
