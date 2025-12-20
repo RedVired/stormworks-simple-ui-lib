@@ -30,20 +30,20 @@ To create a UI element, use one of the following functions:
 1. `sui.tglbutton(x, y, width, height, [outputIndex])`  
    → creates a toggle button
 
-   2. `sui.pshbutton(x, y, width, height, [outputIndex])`  
-      → creates a push button
+2. `sui.pshbutton(x, y, width, height, [outputIndex])`  
+   → creates a push button
 
-      3. `sui.txttglbutton(x, y, width, height, text, [outputIndex])`  
-         → creates a toggle button with text
+3. `sui.txttglbutton(x, y, width, height, text, [outputIndex])`  
+   → creates a toggle button with text
 
-	 4. `sui.txtpshbutton(x, y, width, height, text, [outputIndex])`  
-	    → creates a push button with text
+4. `sui.txtpshbutton(x, y, width, height, text, [outputIndex])`  
+   → creates a push button with text
 
-	    5. `sui.label(x, y, width, height, text)`  
-	       → creates a label
+5. `sui.label(x, y, width, height, text)`  
+   → creates a label
 
-	       `[]` indicates an optional parameter.
+[] indicates an optional parameter.
 
-	       ⚠️ **Important:**  
-	       All UI creation functions must be called **between the `-- lib` section and the `onTick` function**.  
-	       Do **not** call them inside `onTick` or `onDraw`.
+⚠️ **Important:**  
+All UI creation functions must be called **between the `-- lib` section and the `onTick` function**.  
+Do **not** call them inside `onTick` or `onDraw`.
