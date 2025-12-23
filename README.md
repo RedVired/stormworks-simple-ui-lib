@@ -47,3 +47,7 @@ To create a UI element, use one of the following functions:
 ⚠️ **Important:**  
 All UI creation functions must be called **between the `-- lib` section and the `onTick` function**.  
 Do **not** call them inside `onTick` or `onDraw`.
+
+## License
+
+MIT License
